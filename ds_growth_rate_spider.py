@@ -1,4 +1,5 @@
 from .ds_growth_db import insert_data  # Impoting insert_data function to load data into database
+from scrapy.crawler import CrawlerProcess
 import scrapy
 
 class QuotesSpider(scrapy.Spider):
@@ -51,4 +52,9 @@ class QuotesSpider(scrapy.Spider):
 
         except Exception as e:
             print(e)
+
+if __name__ == "__main__":
+    process = CrawlerProcess()
+    process.crawl(QuotesSpider)
+    process.start()
 
